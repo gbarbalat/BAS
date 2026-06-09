@@ -214,10 +214,11 @@ cold_postN3 <- mean_garde_alter(cold_postN3, "postN3")
 #/*
 dim(df_preN1); dim(df_preN2); dim(df_preN3);  dim(df_postN1); dim(df_postN2); dim(df_postN3); 
 dim(cold_preN1); dim(cold_preN2); dim(cold_preN3); dim(cold_postN1); dim(cold_postN2); dim(cold_postN3); 
+
 # save df and cold preN's ----
 save(df_preN1, df_preN2, df_preN3,
      cold_preN1, cold_preN2, cold_preN3,
-     file="3monthsPregnancy_ExpMatrices.RData")
+     file=paste0(Exp, "_3monthsPregnancy_ExpMatrices.RData"))
 #*/
 
 #length_Exp_preN <- length_Exp_preN[!duplicated(names(length_Exp_preN))]
