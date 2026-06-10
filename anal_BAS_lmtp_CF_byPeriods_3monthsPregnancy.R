@@ -152,9 +152,11 @@ moderators <- c(
 #/*
 time_vary <- list(
  
-  preN1=c(paste0("preN1_",cold_suffix),"buffer100m_ndvi_ete_2010","c_emp_2m","sib_2m", "Child_hhld_2m","revenu_part_qui_2m","house_ownership_2m"),#"M02R_DEMENAG"
-  preN2=c(paste0("preN2_",cold_suffix),"buffer100m_ndvi_ete_2010","c_emp_2m","sib_2m", "Child_hhld_2m","revenu_part_qui_2m","house_ownership_2m"),#"M02R_DEMENAG"
-  preN3=c(paste0("preN3_",cold_suffix),"buffer100m_ndvi_ete_2010","c_emp_2m","sib_2m", "Child_hhld_2m","revenu_part_qui_2m","house_ownership_2m"),#"M02R_DEMENAG"
+  preN1=c(paste0("preN1_",cold_suffix),"buffer100m_ndvi_ete_2010"),#"M02R_DEMENAG" No because constant values
+
+  preN2=c(paste0("preN2_",cold_suffix)),
+  
+  preN3=c(paste0("preN3_",cold_suffix),"c_emp_2m","sib_2m", "Child_hhld_2m","revenu_part_qui_2m","house_ownership_2m"),
   
   postN1=c(paste0("postN1_",cold_suffix),"buffer100m_ndvi_ete_2011","c_emp_1y","sib_1y",  "child_hhld_1y","revenu_part_qui_1y","house_ownership_1y","A01R_DEMENAG"),
   postN2=c(paste0("postN2_",cold_suffix),"buffer100m_ndvi_ete_2012", "c_emp_2y","sib_2y",  "child_hhld_2y","revenu_part_qui_2y","house_ownership_2y","A02R_DEMENAG"),
@@ -166,8 +168,9 @@ time_vary <- list(
 load (file = paste0(data_path ,Exp, "_merged_imputed.RData" ))
 load(file=paste0(data_path ,Exp, "_Exp_", CF, "_merged_imputed_3monthsPregnancy.RData"))
 #/*
-load(file=paste0(data_path ,Exp, "_length_Exp.RData")) #length_Exp_preN3 #length_Exp_postN3
-load(file=paste0(data_path ,Exp, "_3monthsPregnancy_ExpMatrices.RData"))
+load(file=paste0(data_path ,Exp, "_length_Exp_3monthsPregnancy.RData")) #length_Exp_preN3 #length_Exp_postN3
+load(file=paste0(data_path ,Exp, "_3monthsPregnancy_ExpMatrices.RData")) #load factual Exp matrices
+load(file=paste0(data_path ,Exp, "_Exp_", CF, "_merged_imputed_3monthsPregnancy.RData"))
 #*/
 
 #if we want to use pct of days with Exposure higher than a threshold rather than number of days
@@ -180,10 +183,6 @@ names(length_Exp_postN3) <- sub("_.*", "", names(length_Exp_postN3))
 length_Exp_postN3 <- length_Exp_postN3[!duplicated(names(length_Exp_postN3))]
 
 #/*
-Exp_preN_list1 <- lapply(Exp_preN_list, extract_period, start = 1, end = 13*7)
-Exp_preN_list2 <- lapply(Exp_preN_list, extract_period, start = 13*7+1, end = 27*7)
-Exp_preN_list3 <- lapply(Exp_preN_list, extract_period, start = 27*7+1, end = Inf)
-
 Exp_as_pct <- function(which_df) {
   which_df <- which_df %>%
     mutate(
@@ -312,4 +311,4 @@ return(list(contrast=contrast,
 
 
 results_lmtp <- lapply(1:m, run_lmtp_imputed_df)
-save(results_lmtp, file=paste0(Exp, "_", CF , "_trim", trim, "_", paste0(period,collapse="_"), "_", trt_suffix, ".RData"))
+save(results_lmtp, file=paste0(Exp, "_", CF , "_trim", trim, "_", paste0(period,collapse="_"), "_", trt_suffix, "_3monthsPregnancy.RData"))
