@@ -34,3 +34,8 @@ In RUN_paramts.txt your values of i and j
 1 2  
 2 4  
 3 6  
+
+- RUN_anal_lmtp_CF_Prema_Poll.sh with anal_BAS_lmtp_CF_Prema_Poll.R $1 $2 and trim_CF.txt
+- RUN_anal_lmtp_CF_byPeriods_3monthsPregnancyl.sh with anal_BAS_lmtp_CF_byPeriods_3monthsPregnancy.R $1 $2 $3 and trim_CF1_period.txt, trim_CF2_period.txt, trim_CF3_period.txt
+- RUN_Process_BAS_IPCW.sh with Process_data_BAS_IPCW.R
+- RUN_anal_lmtp_CF_IPCW.sh with anal_BAS_lmtp_CF_IPCW.R $1 $2 and trim_CF.txt
