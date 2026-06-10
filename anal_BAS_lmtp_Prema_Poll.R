@@ -298,8 +298,6 @@ if (use_poll) {
 
   #CF df
   merged_imputed_CF <- merged_imputed_thisone;   merged_imputed_CF[trt] <- get(paste0("Exp_",CF))[trt]
-  #merged_imputed_CF2 <- merged_imputed_thisone;   merged_imputed_CF2[trt] <- Exp_CF2[trt]
-  
   
 if (use_Exp_pct) {
   merged_imputed_thisone <- Exp_as_pct(merged_imputed_thisone) 
@@ -309,10 +307,7 @@ if (use_Exp_pct) {
   #/*
   if (use_no_prema) {
     merged_imputed_thisone <- no_prema(merged_imputed_thisone) 
-    merged_imputed_CF1 <- no_prema(merged_imputed_CF1) 
-    merged_imputed_CF2 <- no_prema(merged_imputed_CF2) 
-    merged_imputed_CF3 <- no_prema(merged_imputed_CF3) 
-    
+    merged_imputed_CF <- no_prema(merged_imputed_CF)     
   }
   #*/
   
