@@ -28,6 +28,7 @@ use_shift <- FALSE # use shift vs. shifted argument in lmtp functions
 #/*
 use_no_prema <- T
 use_poll <- T
+poll_suffix <- "PM2.5"
 #*/
 
 m <- 10 #imputed dataset
@@ -363,4 +364,4 @@ return(list(contrast=contrast,
 
 
 results_lmtp <- lapply(1:m, run_lmtp_imputed_df)
-save(results_lmtp, file=paste0(Exp, "_", CF , "_trim", trim, "_trt_suffix_", trt_suffix, ".RData"))
+save(results_lmtp, file=paste0(Exp, "_", CF , "_trim", trim, "_trt_suffix_", trt_suffix, "_CoExpPoll.RData"))
