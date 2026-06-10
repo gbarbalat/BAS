@@ -24,13 +24,13 @@ submitted
 
 ## sh scripts  
 Run multiple scripts with each one having a full node  
-In shell:  oarsub –S ./RUN_anal_lmtp_Prema_Poll.sh --array-param-file RUN_params.txt
-Job is launched as many times as they are rows in RUN_params.txt
-In .sh file (assuming two columns), last row: Rscript %name of script%  $1 $2
-In .R script: 
-args=commandArgs(trailingOnly=TRUE)
-i=as.numeric(args[1]); j=as.numeric(args[2]); 
-In RUN_paramts.txt your values of i and j
-1 2
-2 4
-3 6
+In shell:  oarsub –S ./RUN_anal_lmtp_Prema_Poll.sh --array-param-file RUN_params.txt  
+Job is launched as many times as they are rows in RUN_params.txt  
+In .sh file (assuming two columns), last row: Rscript %name of script%  $1 $2  
+In .R script:  
+args=commandArgs(trailingOnly=TRUE)  
+i=as.numeric(args[1]); j=as.numeric(args[2]);  
+In RUN_paramts.txt your values of i and j  
+1 2  
+2 4  
+3 6  
